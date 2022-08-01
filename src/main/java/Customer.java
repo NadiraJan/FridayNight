@@ -14,7 +14,7 @@ public class Customer {
         this.name = name;
         this.age = age;
         this.euros = euros;
-      
+
         this.hasCondom = hasCondom;
     }
 
@@ -43,7 +43,6 @@ public class Customer {
     }
 
 
-
     public boolean isHasCondom() {
         return hasCondom;
     }
@@ -61,32 +60,29 @@ public class Customer {
     }
 
 
-    public boolean feelingConfident(){
+    public boolean feelingConfident() {
         //check if they drank more than 5 beers and if they have a condom
-        if((beersThatTheyDrunk>=5)  && isHasCondom ()){
-            return true;}
+        if ((beersThatTheyDrunk >= 5) && isHasCondom()) {
+            return true;
+        }
 
         return false;
     }
 
-    public double tipTheCuteStaff(Staff staff){
+    public double tipTheCuteStaff(Staff staff) {
 
-                // check how many drinks you had.
+        // check how many drinks you had.
+        // multiply that amount of drinks with the tippingAmount
+        // check if you have enough money. If the amount is too low,
+        // only give the amount that you have left
+        // Return the amount of money you have left
         double expectedTip = beersThatTheyDrunk * tippingAmount;
-        if (expectedTip >= euros){
+        if (euros >= expectedTip) {
             euros -= expectedTip;
             staff.setAmountsOfTips(staff.getAmountsOfTips() + tippingAmount);
             return euros;
         }
-        //multiply that amount of drinks with the tippingAmount
 
-
-
-
-
-        //check if you have enough money. If the amount is too low,
-        //only give the amount that you have left
-        //return the amount of money you have left
         return 0;
     }
 }
