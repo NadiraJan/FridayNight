@@ -63,15 +63,27 @@ public class Customer {
 
     public boolean feelingConfident(){
         //check if they drank more than 5 beers and if they have a condom
-        if(beersThatTheyDrunk>=5 && isHasCondom(){
+        if((beersThatTheyDrunk>=5)  && isHasCondom ()){
             return true;}
 
         return false;
     }
 
-    public int tipTheCuteStaff(Staff staff){
-        // check how many drinks you had.
+    public double tipTheCuteStaff(Staff staff){
+
+                // check how many drinks you had.
+        double expectedTip = beersThatTheyDrunk * tippingAmount;
+        if (expectedTip >= euros){
+            euros -= expectedTip;
+            staff.setAmountsOfTips(staff.getAmountsOfTips() + tippingAmount);
+            return euros;
+        }
         //multiply that amount of drinks with the tippingAmount
+
+
+
+
+
         //check if you have enough money. If the amount is too low,
         //only give the amount that you have left
         //return the amount of money you have left
